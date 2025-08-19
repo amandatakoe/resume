@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Achmad Dedi Purnomo</title>
+    <!-- Link to Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Define A4 size for print */
+        @page {
+            size: A4;
+            margin: 1cm;
+        }
+
+        /* Custom utility classes for fixed width content */
+        .page-container {
+            width: 210mm; /* A4 width */
+            min-height: 297mm; /* A4 height */
+        }
+
+        /* General styling for print view */
+        @media print {
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            .page-container {
+                width: 100%;
+                min-height: auto;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .bg-gray-800 {
+                background-color: #333 !important;
+            }
+            .shadow-2xl, .rounded-3xl, .border-4 {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+            }
+            .text-white {
+                color: white !important;
+            }
+            /* Adjust spacing for print */
+            .p-8, .p-12, .p-16 {
+                padding: 1cm !important;
+            }
+            .space-y-4 > * + * {
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8 md:p-12 lg:p-16">
+
+    <div class="max-w-6xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden page-container">
+        <!-- Main content flows in a single column for print -->
+        <div class="grid grid-cols-1 md:grid-cols-3">
+            <!-- First Column (Left) -->
+            <div class="bg-gray-800 text-white p-8 md:p-12 flex flex-col items-center text-center md:text-left md:items-start">
+                
+                <!-- Profile Photo -->
+                <div class="mb-8">
+                    <img src="https://drive.google.com/file/d/1yqG6iqoKdB0YR-Y6s-nyjY4OfNThu1p0/view?usp=sharing" alt="Foto Profil Achmad Dedi Purnomo" class="w-40 h-40 rounded-full border-4 border-white shadow-lg object-cover">
+                </div>
+
+                <!-- Contact Information -->
+                <div class="w-full mb-8">
+                    <h2 class="text-xl font-bold border-b border-white pb-2 mb-4">Kontak</h2>
+                    <div class="space-y-4 text-sm">
+                        <p class="flex items-center space-x-2">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>0812 806 1806</span>
+                        </p>
+                        <p class="flex items-center space-x-2">
+                            <i class="fas fa-envelope"></i>
+                            <span>fraiskoel@gmail.com</span>
+                        </p>
+                        <p class="flex items-center space-x-2">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Perum TNI AL F8/10, Kedungkendo, Candi, Sidoarjo, Jatim - Indonesia</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Education Information -->
+                <div class="w-full">
+                    <h2 class="text-xl font-bold border-b border-white pb-2 mb-4">Edukasi</h2>
+                    <div class="space-y-2 text-sm">
+                        <p><strong class="font-semibold">SENIOR HIGH SCHOOL</strong><br>Airlangga School of Hotel & Tourism<br>1999-2002</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Column (Right) -->
+            <div class="md:col-span-2 p-8 md:p-12">
+                <!-- Name and Title -->
+                <div class="mb-8">
+                    <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">Achmad Dedi Purnomo</h1>
+                    <p class="text-xl text-gray-600 font-semibold mt-2">Digital Marketing Specialist</p>
+                </div>
+
+                <!-- Profile -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">Profil</h2>
+                    <p class="text-gray-700 leading-relaxed text-sm">
+                        Sebagai Digital Marketing Specialist dengan lebih dari 15 tahun pengalaman, saya terampil dalam mengelola kampanye iklan digital. Fokus utama saya adalah mengoptimalkan strategi Google Ads dan Meta Ads untuk mencapai hasil yang efektif. Selain itu, saya juga mahir dalam strategi SEO untuk meningkatkan visibilitas organik. Dengan latar belakang yang kuat di web development, saya mampu menggabungkan keahlian teknis dengan pemasaran untuk menciptakan solusi digital yang komprehensif.
+                    </p>
+                </div>
+
+                <!-- Work Experience -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">Pengalaman Kerja</h2>
+                    <div class="space-y-6">
+                        <!-- Experience 1 -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900">PT. TOP4 ASIA INDONESIA (Top4Marketing)</h3>
+                            <p class="text-gray-600 italic">2021-Sekarang</p>
+                            <div class="mt-4 space-y-4">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-2">Product & Dev Team Manager</h4>
+                                    <ul class="list-disc text-gray-700 text-sm pl-5">
+                                        <li>Memimpin dan mengelola tim pengembangan produk dan tim developer untuk memastikan proyek berjalan sesuai jadwal.</li>
+                                        <li>Mengkoordinasi strategi pengembangan produk, mulai dari konsep hingga peluncuran.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-2">Ads Manager</h4>
+                                    <ul class="list-disc text-gray-700 text-sm pl-5">
+                                        <li>Mengelola dan mengoptimalkan kampanye Google Ads dan Meta Ads (Facebook & Instagram Ads) untuk mencapai target ROI yang ditetapkan oleh klien.</li>
+                                        <li>Menganalisis data kampanye untuk identifikasi tren dan peluang peningkatan kinerja iklan.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-2">SEO Specialist</h4>
+                                    <ul class="list-disc text-gray-700 text-sm pl-5">
+                                        <li>Merencanakan dan menerapkan strategi SEO on-page dan off-page untuk meningkatkan peringkat organik dan visibilitas website.</li>
+                                        <li>Melakukan audit SEO berkala dan analisis kata kunci untuk memastikan konten relevan dengan target audiens.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-2">Programmer / Web Developer</h4>
+                                    <ul class="list-disc text-gray-700 text-sm pl-5">
+                                        <li>Bertanggung jawab untuk pengembangan, pemeliharaan, dan manajemen website, memastikan fungsionalitas dan kinerja yang optimal.</li>
+                                        <li>Berkoordinasi dengan tim desain dan marketing untuk implementasi fitur-fitur baru pada website.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Experience 2 -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900">SYSTEM ADMINISTRATOR / TECHNICAL SUPPORT COORDINATOR</h3>
+                            <p class="text-gray-600 italic">PT. ARDH GLOBAL INDONESIA (Ardhosting) - BSD CITY | 2007-2010</p>
+                            <ul class="list-disc text-gray-700 text-sm pl-5">
+                                <li>Mengelola dan memelihara web server berbasis Linux dan Windows, memastikan ketersediaan dan stabilitas server yang tinggi.</li>
+                                <li>Melakukan debugging dan troubleshooting secara proaktif untuk menyelesaikan error pada sistem dan server, meminimalkan downtime.</li>
+                                <li>Berkoordinasi dengan tim teknis untuk pemeliharaan datacenter dan penyelesaian masalah jaringan, memastikan infrastruktur berjalan lancar.</li>
+                            </ul>
+                        </div>
+                        <!-- Experience 3 -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900">FRONT MAN</h3>
+                            <p class="text-gray-600 italic">Sheraton Hotel & Towers Surabaya | 2005-2007</p>
+                            <ul class="list-disc text-gray-700 text-sm pl-5">
+                                <li>Menyambut dan memberikan layanan valet parking yang ramah dan efisien untuk tamu hotel.</li>
+                                <li>Bertanggung jawab untuk membawa barang bawaan tamu ke kamar, memastikan pengalaman check-in yang mulus.</li>
+                                <li>Menjadi titik kontak pertama yang profesional dan ramah bagi tamu, berkontribusi pada reputasi layanan yang unggul.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">Keahlian</h2>
+                    <div class="grid grid-cols-1 gap-6 text-sm">
+                        <!-- Technical Skills -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Digital Marketing & SEO</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Google Ads</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Meta Ads</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Google Analytics</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Google Tag Manager</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Google Search Console</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Ubersuggest</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Ahrefs</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">SEO Specialist</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Web Development & CMS</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">WordPress</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Shopify</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">CodeIgniter</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">System Management</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Webserver Management</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">System Administration</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Soft Skills -->
+                        <div class="pt-4 mt-4 border-t-2 border-gray-300">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Soft Skills</h3>
+                            <ul class="space-y-2 text-gray-700 text-sm">
+                                <li><strong class="font-medium">Kepemimpinan & Kolaborasi Tim:</strong> Mampu memimpin tim dan berkolaborasi secara efektif dalam lingkungan kerja yang dinamis.</li>
+                                <li><strong class="font-medium">Penyelesaian Masalah & Analitis:</strong> Terampil dalam memecahkan masalah kompleks dan melakukan riset dengan pendekatan analitis untuk menemukan solusi optimal.</li>
+                                <li><strong class="font-medium">Komunikasi & Adaptabilitas:</strong> Memiliki kemampuan komunikasi yang kuat dan mampu beradaptasi dengan cepat terhadap perubahan lingkungan kerja.</li>
+                                <li><strong class="font-medium">Manajemen Waktu & Kreatif:</strong> Mampu mengelola waktu secara efisien untuk memenuhi tenggat waktu dan berpikir kreatif untuk mengembangkan strategi baru.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
