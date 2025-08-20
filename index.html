@@ -4,71 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - Achmad Dedi Purnomo</title>
-    <!-- Link to Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Link to Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Define A4 size for print */
-        @page {
-            size: A4;
-            margin: 1cm;
-        }
-
-        /* Custom utility classes for fixed width content */
-        .page-container {
-            width: 210mm; /* A4 width */
-            min-height: 297mm; /* A4 height */
-        }
-
+        /*
+         * --- Responsive & Print Styles ---
+         *
+         * The main fix is here. The `page-container` is only for print,
+         * so we put the A4-size rules *inside* the `@media print` block.
+         * For screens, the layout will simply be responsive.
+         */
+        
         /* General styling for print view */
         @media print {
+            /* Define A4 size for print */
+            @page {
+                size: A4;
+                margin: 1cm;
+            }
+
+            .page-container {
+                width: 210mm; /* A4 width */
+                min-height: 297mm; /* A4 height */
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                /* Reset margins and padding for clean print */
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
             body {
                 background: white;
+                /* Ensures colors are printed correctly */
                 -webkit-print-color-adjust: exact;
                 color-adjust: exact;
+                padding: 0 !important;
+                margin: 0 !important;
             }
-            .page-container {
-                width: 100%;
-                min-height: auto;
-                box-shadow: none;
-                border-radius: 0;
-            }
-            .bg-gray-800 {
-                background-color: #333 !important;
-            }
+
+            /* Adjust colors and styles for print */
+            .bg-gray-800 { background-color: #333 !important; }
+            .text-white { color: white !important; }
             .shadow-2xl, .rounded-3xl, .border-4 {
                 box-shadow: none !important;
                 border-radius: 0 !important;
+                border: none !important;
             }
-            .text-white {
-                color: white !important;
-            }
-            /* Adjust spacing for print */
-            .p-8, .p-12, .p-16 {
-                padding: 1cm !important;
-            }
-            .space-y-4 > * + * {
-                margin-top: 0.5rem;
-            }
+            .p-8, .p-12, .p-16 { padding: 1cm !important; }
         }
     </style>
 </head>
-<body class="bg-gray-100 p-8 md:p-12 lg:p-16">
+<body class="bg-gray-100 p-4 md:p-8">
 
     <div class="max-w-6xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden page-container">
-        <!-- Main content flows in a single column for print -->
         <div class="grid grid-cols-1 md:grid-cols-3">
-            <!-- First Column (Left) -->
-            <div class="bg-gray-800 text-white p-8 md:p-12 flex flex-col items-center text-center md:text-left md:items-start">
+            <div class="bg-gray-800 text-white p-6 md:p-12 flex flex-col items-center md:items-start text-center md:text-left">
                 
-                <!-- Profile Photo -->
-                <div class="mb-8">
-                    <img src="https://raw.githubusercontent.com/amandatakoe/resume/refs/heads/main/achmad-dedi-purnomo.jpg" alt="Foto Profil Achmad Dedi Purnomo" class="w-40 h-40 rounded-full border-4 border-white shadow-lg object-cover">
+                <div class="mb-6 md:mb-8">
+                    <img src="https://raw.githubusercontent.com/amandatakoe/resume/refs/heads/main/achmad-dedi-purnomo.jpg" alt="Foto Profil Achmad Dedi Purnomo" class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-lg object-cover">
                 </div>
 
-                <!-- Contact Information -->
-                <div class="w-full mb-8">
+                <div class="w-full mb-6 md:mb-8">
                     <h2 class="text-xl font-bold border-b border-white pb-2 mb-4">Kontak</h2>
                     <div class="space-y-4 text-sm">
                         <p class="flex items-center space-x-2">
@@ -86,7 +82,6 @@
                     </div>
                 </div>
 
-                <!-- Education Information -->
                 <div class="w-full">
                     <h2 class="text-xl font-bold border-b border-white pb-2 mb-4">Edukasi</h2>
                     <div class="space-y-2 text-sm">
@@ -95,27 +90,22 @@
                 </div>
             </div>
 
-            <!-- Second Column (Right) -->
-            <div class="md:col-span-2 p-8 md:p-12">
-                <!-- Name and Title -->
-                <div class="mb-8">
-                    <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">Achmad Dedi Purnomo</h1>
-                    <p class="text-xl text-gray-600 font-semibold mt-2">Digital Marketing Specialist</p>
+            <div class="md:col-span-2 p-6 md:p-12">
+                <div class="mb-6 md:mb-8">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">Achmad Dedi Purnomo</h1>
+                    <p class="text-lg md:text-xl text-gray-600 font-semibold mt-2">Digital Marketing Specialist</p>
                 </div>
 
-                <!-- Profile -->
-                <div class="mb-8">
-                    <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">Profil</h2>
+                <div class="mb-6 md:mb-8">
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">Profil</h2>
                     <p class="text-gray-700 leading-relaxed text-sm">
                         Lebih dari sekadar spesialis digital marketing, saya adalah seorang profesional di industri teknologi digital yang membangun karier dari dasar teknis. Sebagai Product & Dev Team Manager, saya memimpin tim, menguasai Google Ads, Meta Ads, dan SEO, dengan tujuan utama untuk mengubah investasi menjadi hasil yang konkret bagi bisnis. Pengalaman saya sebagai Web Developer dan System Administrator melengkapi keahlian ini, memungkinkan saya untuk merancang strategi produk yang terintegrasi dan memastikan kinerja teknis yang optimal dari hulu ke hilir.
                     </p>
                 </div>
 
-                <!-- Work Experience -->
-                <div class="mb-8">
-                    <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">Pengalaman Kerja</h2>
+                <div class="mb-6 md:mb-8">
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">Pengalaman Kerja</h2>
                     <div class="space-y-6">
-                        <!-- Experience 1 -->
                         <div>
                             <h3 class="text-lg font-semibold text-gray-900">PT. TOP4 ASIA INDONESIA (Top4Marketing)</h3>
                             <p class="text-gray-600 italic">2021-Sekarang</p>
@@ -150,7 +140,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Experience 2 -->
                         <div>
                             <h3 class="text-lg font-semibold text-gray-900">SYSTEM ADMINISTRATOR / TECHNICAL SUPPORT COORDINATOR</h3>
                             <p class="text-gray-600 italic">PT. ARDH GLOBAL INDONESIA (Ardhosting) - BSD CITY | 2007-2010</p>
@@ -160,7 +149,6 @@
                                 <li>Berkoordinasi dengan tim teknis untuk pemeliharaan datacenter dan penyelesaian masalah jaringan, memastikan infrastruktur berjalan lancar.</li>
                             </ul>
                         </div>
-                        <!-- Experience 3 -->
                         <div>
                             <h3 class="text-lg font-semibold text-gray-900">FRONT MAN</h3>
                             <p class="text-gray-600 italic">Sheraton Hotel & Towers Surabaya | 2005-2007</p>
@@ -173,11 +161,9 @@
                     </div>
                 </div>
 
-                <!-- Skills -->
                 <div>
-                    <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">Keahlian</h2>
-                    <div class="grid grid-cols-1 gap-6 text-sm">
-                        <!-- Technical Skills -->
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">Keahlian</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
                         <div>
                             <h3 class="text-lg font-semibold text-gray-900 mb-2">Digital Marketing & SEO</h3>
                             <div class="flex flex-wrap gap-2">
@@ -206,9 +192,7 @@
                                 <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">System Administration</span>
                             </div>
                         </div>
-                        
-                        <!-- Soft Skills -->
-                        <div class="pt-4 mt-4 border-t-2 border-gray-300">
+                        <div class="md:col-span-2 pt-4 mt-4 border-t-2 border-gray-300">
                             <h3 class="text-lg font-semibold text-gray-900 mb-2">Soft Skills</h3>
                             <ul class="space-y-2 text-gray-700 text-sm">
                                 <li><strong class="font-medium">Kepemimpinan & Kolaborasi Tim:</strong> Mampu memimpin tim dan berkolaborasi secara efektif dalam lingkungan kerja yang dinamis.</li>
@@ -225,8 +209,3 @@
 
 </body>
 </html>
-
-
-
-
-
