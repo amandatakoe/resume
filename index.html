@@ -4,123 +4,207 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - Achmad Dedi Purnomo</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* General styling for print view */
+        /*
+         * --- General & Responsive Styles (not for print) ---
+         */
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 2rem; /* Consistent padding on all sides */
+        }
+
+        .resume-container {
+            max-width: 1152px; /* Equivalent to max-w-6xl */
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 1.5rem; /* Equivalent to rounded-3xl */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Equivalent to shadow-2xl */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column; /* Default for mobile */
+        }
+        
+        /* The main columns */
+        .left-column {
+            background-color: #1f2937; /* bg-gray-800 */
+            color: #ffffff;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .right-column {
+            padding: 1.5rem;
+        }
+
+        /* Profile photo */
+        .profile-photo {
+            width: 10rem; /* w-40 */
+            height: 10rem; /* h-40 */
+            border-radius: 9999px; /* rounded-full */
+            border: 4px solid #ffffff;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact details alignment */
+        .contact-item {
+            display: flex;
+            align-items: flex-start; /* items-start */
+            margin-bottom: 1rem;
+        }
+
+        .contact-item i {
+            margin-right: 0.5rem;
+        }
+
+        /* Skills badges */
+        .skill-badge {
+            display: inline-block;
+            background-color: #dbeafe; /* bg-blue-100 */
+            color: #1e40af; /* text-blue-800 */
+            font-size: 0.75rem; /* text-xs */
+            font-weight: 500;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px; /* rounded-full */
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Heading styles */
+        h1 { font-size: 3rem; font-weight: 800; line-height: 1; color: #111827; margin-bottom: 0.5rem; }
+        h2 { font-size: 1.5rem; font-weight: 700; color: #1f2937; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; margin-bottom: 1rem; }
+        h3 { font-size: 1.125rem; font-weight: 600; color: #111827; }
+        h4 { font-size: 1rem; font-weight: 600; color: #1f2937; }
+        
+        /* Specific content styles */
+        .profile-description { font-size: 0.875rem; color: #374151; line-height: 1.625; }
+        .experience-item { margin-bottom: 1.5rem; }
+        .experience-list { list-style-type: disc; margin-left: 1.25rem; }
+        .experience-list li { margin-bottom: 0.25rem; }
+
+        /* Media Queries for Desktop View */
+        @media (min-width: 768px) { /* Equivalent to Tailwind's md breakpoint */
+            body { padding: 3rem; }
+            .left-column {
+                padding: 3rem;
+                text-align: left;
+            }
+            .right-column {
+                padding: 3rem;
+            }
+            .resume-container {
+                flex-direction: row; /* Horizontal layout on desktop */
+            }
+            .left-column { flex: 1; } /* Left column takes 1 part */
+            .right-column { flex: 2; } /* Right column takes 2 parts */
+
+            h1 { font-size: 3.75rem; } /* sm:text-4xl */
+            h2 { font-size: 1.875rem; } /* md:text-2xl */
+        }
+        @media (min-width: 1024px) { /* Equivalent to Tailwind's lg breakpoint */
+            h1 { font-size: 4.5rem; } /* lg:text-5xl */
+        }
+
+        /* Print styles */
         @media print {
             @page {
                 size: A4;
                 margin: 1cm;
             }
-
-            .page-container {
-                width: 210mm;
-                min-height: 297mm;
-                box-shadow: none !important;
-                border-radius: 0 !important;
-                margin: 0 !important;
-                padding: 0 !important;
-            }
-
             body {
                 background: white;
                 -webkit-print-color-adjust: exact;
                 color-adjust: exact;
-                padding: 0 !important;
-                margin: 0 !important;
+                margin: 0;
+                padding: 0;
             }
-
-            .bg-gray-800 { background-color: #333 !important; }
-            .text-white { color: white !important; }
-            .shadow-2xl, .rounded-3xl, .border-4 {
-                box-shadow: none !important;
-                border-radius: 0 !important;
-                border: none !important;
+            .resume-container {
+                width: 210mm;
+                min-height: 297mm;
+                box-shadow: none;
+                border-radius: 0;
+                flex-direction: column;
+                margin: 0;
+                padding: 0;
             }
-            .p-8, .p-12, .p-16 { padding: 1cm !important; }
-        }
-
-        /* Custom utility for a cleaner layout */
-        .page-content-wrapper {
-            @apply flex flex-col md:flex-row;
+            .left-column { background-color: #333 !important; padding: 1cm !important; }
+            .right-column { padding: 1cm !important; }
+            .left-column, .right-column { flex: unset !important; }
+            .profile-photo { border-width: 0 !important; box-shadow: none !important; }
+            .shadow-2xl, .rounded-3xl, .border-4 { box-shadow: none !important; border-radius: 0 !important; border: none !important; }
         }
     </style>
 </head>
-<body class="bg-gray-100 p-4 md:p-8">
+<body>
 
-    <div class="max-w-6xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden page-container">
-        <div class="page-content-wrapper">
-
-            <div class="bg-gray-800 text-white p-6 md:p-12 md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left">
-                
-                <div class="mb-6 md:mb-8">
-                    <img src="https://raw.githubusercontent.com/amandatakoe/resume/refs/heads/main/achmad-dedi-purnomo.jpg" alt="Foto Profil Achmad Dedi Purnomo" class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-lg object-cover">
-                </div>
-
-                <div class="w-full mb-6 md:mb-8">
-                    <h2 class="text-xl font-bold border-b border-white pb-2 mb-4">Kontak</h2>
-                    <div class="space-y-4 text-sm">
-                        <p class="flex items-start space-x-2">
-                            <i class="fas fa-phone-alt"></i>
-                            <span>0812 806 1806</span>
-                        </p>
-                        <p class="flex items-start space-x-2">
-                            <i class="fas fa-envelope"></i>
-                            <span>fraiskoel@gmail.com</span>
-                        </p>
-                        <p class="flex items-start space-x-2">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Perum TNI AL F8/10, Kedungkendo, Candi, Sidoarjo, Jatim - Indonesia</span>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="w-full">
-                    <h2 class="text-xl font-bold border-b border-white pb-2 mb-4">Edukasi</h2>
-                    <div class="space-y-2 text-sm">
-                        <p><strong class="font-semibold">SENIOR HIGH SCHOOL</strong><br>Airlangga School of Hotel & Tourism<br>1999-2002</p>
-                    </div>
+    <div class="resume-container">
+        <div class="left-column">
+            <img src="https://raw.githubusercontent.com/amandatakoe/resume/refs/heads/main/achmad-dedi-purnomo.jpg" alt="Foto Profil Achmad Dedi Purnomo" class="profile-photo">
+            
+            <div class="mb-6">
+                <h2>Kontak</h2>
+                <div class="text-sm">
+                    <p class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>0812 806 1806</span>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>fraiskoel@gmail.com</span>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Perum TNI AL F8/10, Kedungkendo, Candi, Sidoarjo, Jatim - Indonesia</span>
+                    </p>
                 </div>
             </div>
 
-            <div class="p-6 md:p-12 md:w-2/3">
-                <div class="mb-6 md:mb-8">
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">Achmad Dedi Purnomo</h1>
-                    <p class="text-lg md:text-xl text-gray-600 font-semibold mt-2">Digital Marketing Specialist</p>
+            <div class="mb-6">
+                <h2>Edukasi</h2>
+                <div class="text-sm">
+                    <p><strong class="font-semibold">SENIOR HIGH SCHOOL</strong><br>Airlangga School of Hotel & Tourism<br>1999-2002</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div>
+                <h1>Achmad Dedi Purnomo</h1>
+                <p class="text-xl text-gray-600 font-semibold mt-2">Digital Marketing Specialist</p>
+            </div>
+
+            <div class="mb-6">
+                <h2>Profil</h2>
+                <p class="profile-description">
+                    Lebih dari sekadar spesialis digital marketing, saya adalah seorang profesional di industri teknologi digital yang membangun karier dari dasar teknis. Sebagai Product & Dev Team Manager, saya memimpin tim, menguasai Google Ads, Meta Ads, dan SEO, dengan tujuan utama untuk mengubah investasi menjadi hasil yang konkret bagi bisnis. Pengalaman saya sebagai Web Developer dan System Administrator melengkapi keahlian ini, memungkinkan saya untuk merancang strategi produk yang terintegrasi dan memastikan kinerja teknis yang optimal dari hulu ke hilir.
+                </p>
+            </div>
+
+            <div class="mb-6">
+                <h2>Pengalaman Kerja</h2>
                 </div>
 
-                <div class="mb-6 md:mb-8">
-                    <h2 class="text-xl md:text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">Profil</h2>
-                    <p class="text-gray-700 leading-relaxed text-sm">
-                        Lebih dari sekadar spesialis digital marketing, saya adalah seorang profesional di industri teknologi digital yang membangun karier dari dasar teknis. Sebagai Product & Dev Team Manager, saya memimpin tim, menguasai Google Ads, Meta Ads, dan SEO, dengan tujuan utama untuk mengubah investasi menjadi hasil yang konkret bagi bisnis. Pengalaman saya sebagai Web Developer dan System Administrator melengkapi keahlian ini, memungkinkan saya untuk merancang strategi produk yang terintegrasi dan memastikan kinerja teknis yang optimal dari hulu ke hilir.
-                    </p>
-                </div>
-
-                <div class="mb-6 md:mb-8">
-                    <h2 class="text-xl md:text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">Pengalaman Kerja</h2>
-                    <div class="space-y-6">
-                        </div>
-                </div>
-
-                <div>
-                    <h2 class="text-xl md:text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">Keahlian</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+            <div>
+                <h2>Keahlian</h2>
+                <div class="skills-grid">
+                    <div>
+                        <h3>Digital Marketing & SEO</h3>
                         <div>
-                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Digital Marketing & SEO</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Google Ads</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Meta Ads</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Google Analytics</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Google Tag Manager</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Google Search Console</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Ubersuggest</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Ahrefs</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">SEO Specialist</span>
-                            </div>
+                            <span class="skill-badge">Google Ads</span>
+                            <span class="skill-badge">Meta Ads</span>
+                            <span class="skill-badge">Google Analytics</span>
+                            <span class="skill-badge">Google Tag Manager</span>
+                            <span class="skill-badge">Google Search Console</span>
+                            <span class="skill-badge">Ubersuggest</span>
+                            <span class="skill-badge">Ahrefs</span>
+                            <span class="skill-badge">SEO Specialist</span>
                         </div>
-                        </div>
-                </div>
+                    </div>
+                    </div>
             </div>
         </div>
     </div>
