@@ -7,42 +7,30 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /*
-         * --- Responsive & Print Styles ---
-         *
-         * The main fix is here. The `page-container` is only for print,
-         * so we put the A4-size rules *inside* the `@media print` block.
-         * For screens, the layout will simply be responsive.
-         */
-        
         /* General styling for print view */
         @media print {
-            /* Define A4 size for print */
             @page {
                 size: A4;
                 margin: 1cm;
             }
 
             .page-container {
-                width: 210mm; /* A4 width */
-                min-height: 297mm; /* A4 height */
+                width: 210mm;
+                min-height: 297mm;
                 box-shadow: none !important;
                 border-radius: 0 !important;
-                /* Reset margins and padding for clean print */
                 margin: 0 !important;
                 padding: 0 !important;
             }
 
             body {
                 background: white;
-                /* Ensures colors are printed correctly */
                 -webkit-print-color-adjust: exact;
                 color-adjust: exact;
                 padding: 0 !important;
                 margin: 0 !important;
             }
 
-            /* Adjust colors and styles for print */
             .bg-gray-800 { background-color: #333 !important; }
             .text-white { color: white !important; }
             .shadow-2xl, .rounded-3xl, .border-4 {
@@ -52,35 +40,40 @@
             }
             .p-8, .p-12, .p-16 { padding: 1cm !important; }
         }
+
+        /* Custom utility for a cleaner layout */
+        .page-content-wrapper {
+            @apply flex flex-col md:flex-row;
+        }
     </style>
 </head>
 <body class="bg-gray-100 p-4 md:p-8">
 
     <div class="max-w-6xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden page-container">
-        <div class="grid grid-cols-1 md:grid-cols-3">
-            <div class="bg-gray-800 text-white p-6 md:p-12 flex flex-col items-center md:items-start text-center md:text-left">
+        <div class="page-content-wrapper">
+
+            <div class="bg-gray-800 text-white p-6 md:p-12 md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left">
                 
                 <div class="mb-6 md:mb-8">
                     <img src="https://raw.githubusercontent.com/amandatakoe/resume/refs/heads/main/achmad-dedi-purnomo.jpg" alt="Foto Profil Achmad Dedi Purnomo" class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-lg object-cover">
                 </div>
 
                 <div class="w-full mb-6 md:mb-8">
-    <h2 class="text-xl font-bold border-b border-white pb-2 mb-4">Kontak</h2>
-    <div class="space-y-4 text-sm">
-        <p class="flex items-start space-x-2">
-            <i class="fas fa-phone-alt"></i>
-            <span>0812 806 1806</span>
-        </p>
-        <p class="flex items-start space-x-2">
-            <i class="fas fa-envelope"></i>
-            <span>fraiskoel@gmail.com</span>
-        </p>
-        <p class="flex items-start space-x-2">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Perum TNI AL F8/10, Kedungkendo, Candi, Sidoarjo, Jatim - Indonesia</span>
-        </p>
-    </div>
-</div>
+                    <h2 class="text-xl font-bold border-b border-white pb-2 mb-4">Kontak</h2>
+                    <div class="space-y-4 text-sm">
+                        <p class="flex items-start space-x-2">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>0812 806 1806</span>
+                        </p>
+                        <p class="flex items-start space-x-2">
+                            <i class="fas fa-envelope"></i>
+                            <span>fraiskoel@gmail.com</span>
+                        </p>
+                        <p class="flex items-start space-x-2">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Perum TNI AL F8/10, Kedungkendo, Candi, Sidoarjo, Jatim - Indonesia</span>
+                        </p>
+                    </div>
                 </div>
 
                 <div class="w-full">
@@ -91,7 +84,7 @@
                 </div>
             </div>
 
-            <div class="md:col-span-2 p-6 md:p-12">
+            <div class="p-6 md:p-12 md:w-2/3">
                 <div class="mb-6 md:mb-8">
                     <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">Achmad Dedi Purnomo</h1>
                     <p class="text-lg md:text-xl text-gray-600 font-semibold mt-2">Digital Marketing Specialist</p>
@@ -107,59 +100,7 @@
                 <div class="mb-6 md:mb-8">
                     <h2 class="text-xl md:text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">Pengalaman Kerja</h2>
                     <div class="space-y-6">
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-900">PT. TOP4 ASIA INDONESIA (Top4Marketing)</h3>
-                            <p class="text-gray-600 italic">2021-Sekarang</p>
-                            <div class="mt-4 space-y-4">
-                                <div>
-                                    <h4 class="font-semibold text-gray-800 mb-2">Product & Dev Team Manager</h4>
-                                    <ul class="list-disc text-gray-700 text-sm pl-5">
-                                        <li>Memimpin dan mengelola tim pengembangan produk dan tim developer untuk memastikan proyek berjalan sesuai jadwal.</li>
-                                        <li>Mengkoordinasi strategi pengembangan produk, mulai dari konsep hingga peluncuran.</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800 mb-2">Ads Manager</h4>
-                                    <ul class="list-disc text-gray-700 text-sm pl-5">
-                                        <li>Mengelola dan mengoptimalkan kampanye Google Ads dan Meta Ads (Facebook & Instagram Ads) untuk mencapai target ROI yang ditetapkan oleh klien.</li>
-                                        <li>Menganalisis data kampanye untuk identifikasi tren dan peluang peningkatan kinerja iklan.</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800 mb-2">SEO Specialist</h4>
-                                    <ul class="list-disc text-gray-700 text-sm pl-5">
-                                        <li>Merencanakan dan menerapkan strategi SEO on-page dan off-page untuk meningkatkan peringkat organik dan visibilitas website.</li>
-                                        <li>Melakukan audit SEO berkala dan analisis kata kunci untuk memastikan konten relevan dengan target audiens.</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800 mb-2">Programmer / Web Developer</h4>
-                                    <ul class="list-disc text-gray-700 text-sm pl-5">
-                                        <li>Bertanggung jawab untuk pengembangan, pemeliharaan, dan manajemen website, memastikan fungsionalitas dan kinerja yang optimal.</li>
-                                        <li>Berkoordinasi dengan tim desain dan marketing untuk implementasi fitur-fitur baru pada website.</li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-900">SYSTEM ADMINISTRATOR / TECHNICAL SUPPORT COORDINATOR</h3>
-                            <p class="text-gray-600 italic">PT. ARDH GLOBAL INDONESIA (Ardhosting) - BSD CITY | 2007-2010</p>
-                            <ul class="list-disc text-gray-700 text-sm pl-5">
-                                <li>Mengelola dan memelihara web server berbasis Linux dan Windows, memastikan ketersediaan dan stabilitas server yang tinggi.</li>
-                                <li>Melakukan debugging dan troubleshooting secara proaktif untuk menyelesaikan error pada sistem dan server, meminimalkan downtime.</li>
-                                <li>Berkoordinasi dengan tim teknis untuk pemeliharaan datacenter dan penyelesaian masalah jaringan, memastikan infrastruktur berjalan lancar.</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-900">FRONT MAN</h3>
-                            <p class="text-gray-600 italic">Sheraton Hotel & Towers Surabaya | 2005-2007</p>
-                            <ul class="list-disc text-gray-700 text-sm pl-5">
-                                <li>Menyambut dan memberikan layanan valet parking yang ramah dan efisien untuk tamu hotel.</li>
-                                <li>Bertanggung jawab untuk membawa barang bawaan tamu ke kamar, memastikan pengalaman check-in yang mulus.</li>
-                                <li>Menjadi titik kontak pertama yang profesional dan ramah bagi tamu, berkontribusi pada reputasi layanan yang unggul.</li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
 
                 <div>
@@ -178,31 +119,7 @@
                                 <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">SEO Specialist</span>
                             </div>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Web Development & CMS</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">WordPress</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Shopify</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">CodeIgniter</span>
-                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-900 mb-2">System Management</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Webserver Management</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">System Administration</span>
-                            </div>
-                        </div>
-                        <div class="md:col-span-2 pt-4 mt-4 border-t-2 border-gray-300">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Soft Skills</h3>
-                            <ul class="space-y-2 text-gray-700 text-sm">
-                                <li><strong class="font-medium">Kepemimpinan & Kolaborasi Tim:</strong> Mampu memimpin tim dan berkolaborasi secara efektif dalam lingkungan kerja yang dinamis.</li>
-                                <li><strong class="font-medium">Penyelesaian Masalah & Analitis:</strong> Terampil dalam memecahkan masalah kompleks dan melakukan riset dengan pendekatan analitis untuk menemukan solusi optimal.</li>
-                                <li><strong class="font-medium">Komunikasi & Adaptabilitas:</strong> Memiliki kemampuan komunikasi yang kuat dan mampu beradaptasi dengan cepat terhadap perubahan lingkungan kerja.</li>
-                                <li><strong class="font-medium">Manajemen Waktu & Kreatif:</strong> Mampu mengelola waktu secara efisien untuk memenuhi tenggat waktu dan berpikir kreatif untuk mengembangkan strategi baru.</li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -210,4 +127,3 @@
 
 </body>
 </html>
-
