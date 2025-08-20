@@ -6,208 +6,419 @@
     <title>Resume - Achmad Dedi Purnomo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /*
-         * --- General & Responsive Styles (not for print) ---
-         */
+        /* Define A4 size for print */
+        @page {
+            size: A4;
+            margin: 1cm;
+        }
+
         body {
-            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
             background-color: #f3f4f6;
-            margin: 0;
-            padding: 2rem; /* Consistent padding on all sides */
+            padding: 2rem;
         }
 
         .resume-container {
-            max-width: 1152px; /* Equivalent to max-w-6xl */
-            margin: 0 auto;
-            background-color: #ffffff;
-            border-radius: 1.5rem; /* Equivalent to rounded-3xl */
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Equivalent to shadow-2xl */
+            max-width: 1280px;
+            margin: auto;
+            background-color: white;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-radius: 1.5rem;
             overflow: hidden;
-            display: flex;
-            flex-direction: column; /* Default for mobile */
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .resume-container {
+                grid-template-columns: 1fr 2fr;
+            }
         }
         
-        /* The main columns */
+        /* Left Column Styles */
         .left-column {
-            background-color: #1f2937; /* bg-gray-800 */
-            color: #ffffff;
-            padding: 1.5rem;
+            background-color: #1f2937;
+            color: white;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
         }
 
-        .right-column {
-            padding: 1.5rem;
+        @media (min-width: 768px) {
+            .left-column {
+                padding: 4rem;
+                align-items: flex-start;
+                text-align: left;
+            }
         }
 
-        /* Profile photo */
         .profile-photo {
-            width: 10rem; /* w-40 */
-            height: 10rem; /* h-40 */
-            border-radius: 9999px; /* rounded-full */
-            border: 4px solid #ffffff;
+            margin-bottom: 2rem;
+        }
+
+        .profile-photo img {
+            width: 160px;
+            height: 160px;
+            border-radius: 9999px;
+            border: 4px solid white;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             object-fit: cover;
+        }
+
+        .contact-info {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            border-bottom: 1px solid white;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-list, .education-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.875rem;
+        }
+        
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .education-list p {
+            margin: 0;
+        }
+
+        /* Right Column Styles */
+        .right-column {
+            padding: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .right-column {
+                padding: 4rem;
+            }
+        }
+        
+        .name-title-section {
+            margin-bottom: 2rem;
+        }
+        
+        .name {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #111827;
+            line-height: 1.25;
+        }
+
+        .title {
+            font-size: 1.25rem;
+            color: #4b5563;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .profile-section {
+            margin-bottom: 2rem;
+        }
+
+        .right-section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            border-bottom: 2px solid #d1d5db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .profile-text {
+            color: #374151;
+            line-height: 1.625;
+            font-size: 0.875rem;
+        }
+        
+        .experience-section {
+            margin-bottom: 2rem;
+        }
+        
+        .experience-item {
             margin-bottom: 1.5rem;
         }
 
-        /* Contact details alignment */
-        .contact-item {
-            display: flex;
-            align-items: flex-start; /* items-start */
+        .job-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .company-date {
+            color: #4b5563;
+            font-style: italic;
+            margin-top: 0.25rem;
             margin-bottom: 1rem;
         }
-
-        .contact-item i {
-            margin-right: 0.5rem;
+        
+        .job-details-list {
+            list-style: none;
+            padding-left: 1.25rem;
+            margin: 0;
         }
 
-        /* Skills badges */
-        .skill-badge {
-            display: inline-block;
-            background-color: #dbeafe; /* bg-blue-100 */
-            color: #1e40af; /* text-blue-800 */
-            font-size: 0.75rem; /* text-xs */
+        .job-details-list li {
+            list-style-type: disc;
+            color: #374151;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skills-section {
+            margin-bottom: 2rem;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+        }
+
+        .skill-group h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background-color: #dbeafe;
+            color: #1e40af;
+            font-size: 0.75rem;
             font-weight: 500;
             padding: 0.25rem 0.75rem;
-            border-radius: 9999px; /* rounded-full */
-            margin-right: 0.5rem;
+            border-radius: 9999px;
+        }
+        
+        .soft-skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: #374151;
+            font-size: 0.875rem;
+        }
+
+        .soft-skills-list li {
             margin-bottom: 0.5rem;
         }
 
-        /* Heading styles */
-        h1 { font-size: 3rem; font-weight: 800; line-height: 1; color: #111827; margin-bottom: 0.5rem; }
-        h2 { font-size: 1.5rem; font-weight: 700; color: #1f2937; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; margin-bottom: 1rem; }
-        h3 { font-size: 1.125rem; font-weight: 600; color: #111827; }
-        h4 { font-size: 1rem; font-weight: 600; color: #1f2937; }
-        
-        /* Specific content styles */
-        .profile-description { font-size: 0.875rem; color: #374151; line-height: 1.625; }
-        .experience-item { margin-bottom: 1.5rem; }
-        .experience-list { list-style-type: disc; margin-left: 1.25rem; }
-        .experience-list li { margin-bottom: 0.25rem; }
-
-        /* Media Queries for Desktop View */
-        @media (min-width: 768px) { /* Equivalent to Tailwind's md breakpoint */
-            body { padding: 3rem; }
-            .left-column {
-                padding: 3rem;
-                text-align: left;
-            }
-            .right-column {
-                padding: 3rem;
-            }
-            .resume-container {
-                flex-direction: row; /* Horizontal layout on desktop */
-            }
-            .left-column { flex: 1; } /* Left column takes 1 part */
-            .right-column { flex: 2; } /* Right column takes 2 parts */
-
-            h1 { font-size: 3.75rem; } /* sm:text-4xl */
-            h2 { font-size: 1.875rem; } /* md:text-2xl */
-        }
-        @media (min-width: 1024px) { /* Equivalent to Tailwind's lg breakpoint */
-            h1 { font-size: 4.5rem; } /* lg:text-5xl */
+        .soft-skills-list strong {
+            font-weight: 500;
         }
 
         /* Print styles */
         @media print {
-            @page {
-                size: A4;
-                margin: 1cm;
-            }
             body {
                 background: white;
                 -webkit-print-color-adjust: exact;
                 color-adjust: exact;
-                margin: 0;
-                padding: 0;
             }
+
             .resume-container {
-                width: 210mm;
-                min-height: 297mm;
+                width: 100%;
+                min-height: auto;
                 box-shadow: none;
                 border-radius: 0;
-                flex-direction: column;
-                margin: 0;
-                padding: 0;
+                display: block;
             }
-            .left-column { background-color: #333 !important; padding: 1cm !important; }
-            .right-column { padding: 1cm !important; }
-            .left-column, .right-column { flex: unset !important; }
-            .profile-photo { border-width: 0 !important; box-shadow: none !important; }
-            .shadow-2xl, .rounded-3xl, .border-4 { box-shadow: none !important; border-radius: 0 !important; border: none !important; }
+
+            .left-column {
+                background-color: #333 !important;
+                padding: 1cm !important;
+            }
+
+            .right-column {
+                padding: 1cm !important;
+            }
+
+            .right-section-title, .section-title {
+                border-color: #eee !important;
+            }
+
+            .profile-photo img {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                border-width: 0 !important;
+            }
+            
+            .skill-tag {
+                background-color: #e0e0e0 !important;
+                color: #333 !important;
+            }
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-100 p-8 md:p-12 lg:p-16">
 
     <div class="resume-container">
         <div class="left-column">
-            <img src="https://raw.githubusercontent.com/amandatakoe/resume/refs/heads/main/achmad-dedi-purnomo.jpg" alt="Foto Profil Achmad Dedi Purnomo" class="profile-photo">
-            
-            <div class="mb-6">
-                <h2>Kontak</h2>
-                <div class="text-sm">
-                    <p class="contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <span>0812 806 1806</span>
-                    </p>
-                    <p class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>fraiskoel@gmail.com</span>
-                    </p>
-                    <p class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Perum TNI AL F8/10, Kedungkendo, Candi, Sidoarjo, Jatim - Indonesia</span>
-                    </p>
-                </div>
+            <div class="profile-photo">
+                <img src="https://raw.githubusercontent.com/amandatakoe/resume/refs/heads/main/achmad-dedi-purnomo.jpg" alt="Foto Profil Achmad Dedi Purnomo">
             </div>
 
-            <div class="mb-6">
-                <h2>Edukasi</h2>
-                <div class="text-sm">
-                    <p><strong class="font-semibold">SENIOR HIGH SCHOOL</strong><br>Airlangga School of Hotel & Tourism<br>1999-2002</p>
+            <div class="contact-info">
+                <h2 class="section-title">Kontak</h2>
+                <ul class="contact-list">
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>0812 806 1806</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>fraiskoel@gmail.com</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Perum TNI AL F8/10, Kedungkendo, Candi, Sidoarjo, Jatim - Indonesia</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="education-info">
+                <h2 class="section-title">Edukasi</h2>
+                <div class="education-list">
+                    <p><strong>SENIOR HIGH SCHOOL</strong><br>Airlangga School of Hotel & Tourism<br>1999-2002</p>
                 </div>
             </div>
         </div>
 
         <div class="right-column">
-            <div>
-                <h1>Achmad Dedi Purnomo</h1>
-                <p class="text-xl text-gray-600 font-semibold mt-2">Digital Marketing Specialist</p>
+            <div class="name-title-section">
+                <h1 class="name">Achmad Dedi Purnomo</h1>
+                <p class="title">Digital Marketing Specialist</p>
             </div>
 
-            <div class="mb-6">
-                <h2>Profil</h2>
-                <p class="profile-description">
+            <div class="profile-section">
+                <h2 class="right-section-title">Profil</h2>
+                <p class="profile-text">
                     Lebih dari sekadar spesialis digital marketing, saya adalah seorang profesional di industri teknologi digital yang membangun karier dari dasar teknis. Sebagai Product & Dev Team Manager, saya memimpin tim, menguasai Google Ads, Meta Ads, dan SEO, dengan tujuan utama untuk mengubah investasi menjadi hasil yang konkret bagi bisnis. Pengalaman saya sebagai Web Developer dan System Administrator melengkapi keahlian ini, memungkinkan saya untuk merancang strategi produk yang terintegrasi dan memastikan kinerja teknis yang optimal dari hulu ke hilir.
                 </p>
             </div>
 
-            <div class="mb-6">
-                <h2>Pengalaman Kerja</h2>
-                </div>
-
-            <div>
-                <h2>Keahlian</h2>
-                <div class="skills-grid">
-                    <div>
-                        <h3>Digital Marketing & SEO</h3>
-                        <div>
-                            <span class="skill-badge">Google Ads</span>
-                            <span class="skill-badge">Meta Ads</span>
-                            <span class="skill-badge">Google Analytics</span>
-                            <span class="skill-badge">Google Tag Manager</span>
-                            <span class="skill-badge">Google Search Console</span>
-                            <span class="skill-badge">Ubersuggest</span>
-                            <span class="skill-badge">Ahrefs</span>
-                            <span class="skill-badge">SEO Specialist</span>
+            <div class="experience-section">
+                <h2 class="right-section-title">Pengalaman Kerja</h2>
+                <div class="experience-list">
+                    <div class="experience-item">
+                        <h3 class="job-title">PT. TOP4 ASIA INDONESIA (Top4Marketing)</h3>
+                        <p class="company-date">2021-Sekarang</p>
+                        <div class="job-details">
+                            <h4 class="job-details-title">Product & Dev Team Manager</h4>
+                            <ul class="job-details-list">
+                                <li>Memimpin dan mengelola tim pengembangan produk dan tim developer untuk memastikan proyek berjalan sesuai jadwal.</li>
+                                <li>Mengkoordinasi strategi pengembangan produk, mulai dari konsep hingga peluncuran.</li>
+                            </ul>
+                        </div>
+                        <div class="job-details">
+                            <h4 class="job-details-title">Ads Manager</h4>
+                            <ul class="job-details-list">
+                                <li>Mengelola dan mengoptimalkan kampanye Google Ads dan Meta Ads (Facebook & Instagram Ads) untuk mencapai target ROI yang ditetapkan oleh klien.</li>
+                                <li>Menganalisis data kampanye untuk identifikasi tren dan peluang peningkatan kinerja iklan.</li>
+                            </ul>
+                        </div>
+                        <div class="job-details">
+                            <h4 class="job-details-title">SEO Specialist</h4>
+                            <ul class="job-details-list">
+                                <li>Merencanakan dan menerapkan strategi SEO on-page dan off-page untuk meningkatkan peringkat organik dan visibilitas website.</li>
+                                <li>Melakukan audit SEO berkala dan analisis kata kunci untuk memastikan konten relevan dengan target audiens.</li>
+                            </ul>
+                        </div>
+                        <div class="job-details">
+                            <h4 class="job-details-title">Programmer / Web Developer</h4>
+                            <ul class="job-details-list">
+                                <li>Bertanggung jawab untuk pengembangan, pemeliharaan, dan manajemen website, memastikan fungsionalitas dan kinerja yang optimal.</li>
+                                <li>Berkoordinasi dengan tim desain dan marketing untuk implementasi fitur-fitur baru pada website.</li>
+                            </ul>
                         </div>
                     </div>
+                    <div class="experience-item">
+                        <h3 class="job-title">SYSTEM ADMINISTRATOR / TECHNICAL SUPPORT COORDINATOR</h3>
+                        <p class="company-date">PT. ARDH GLOBAL INDONESIA (Ardhosting) - BSD CITY | 2007-2010</p>
+                        <ul class="job-details-list">
+                            <li>Mengelola dan memelihara web server berbasis Linux dan Windows, memastikan ketersediaan dan stabilitas server yang tinggi.</li>
+                            <li>Melakukan debugging dan troubleshooting secara proaktif untuk menyelesaikan error pada sistem dan server, meminimalkan downtime.</li>
+                            <li>Berkoordinasi dengan tim teknis untuk pemeliharaan datacenter dan penyelesaian masalah jaringan, memastikan infrastruktur berjalan lancar.</li>
+                        </ul>
                     </div>
+                    <div class="experience-item">
+                        <h3 class="job-title">FRONT MAN</h3>
+                        <p class="company-date">Sheraton Hotel & Towers Surabaya | 2005-2007</p>
+                        <ul class="job-details-list">
+                            <li>Menyambut dan memberikan layanan valet parking yang ramah dan efisien untuk tamu hotel.</li>
+                            <li>Bertanggung jawab untuk membawa barang bawaan tamu ke kamar, memastikan pengalaman check-in yang mulus.</li>
+                            <li>Menjadi titik kontak pertama yang profesional dan ramah bagi tamu, berkontribusi pada reputasi layanan yang unggul.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-section">
+                <h2 class="right-section-title">Keahlian</h2>
+                <div class="skills-container">
+                    <div class="skill-group">
+                        <h3>Digital Marketing & SEO</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Google Ads</span>
+                            <span class="skill-tag">Meta Ads</span>
+                            <span class="skill-tag">Google Analytics</span>
+                            <span class="skill-tag">Google Tag Manager</span>
+                            <span class="skill-tag">Google Search Console</span>
+                            <span class="skill-tag">Ubersuggest</span>
+                            <span class="skill-tag">Ahrefs</span>
+                            <span class="skill-tag">SEO Specialist</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Web Development & CMS</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">WordPress</span>
+                            <span class="skill-tag">Shopify</span>
+                            <span class="skill-tag">CodeIgniter</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h3>System Management</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Webserver Management</span>
+                            <span class="skill-tag">System Administration</span>
+                        </div>
+                    </div>
+                    
+                    <div class="soft-skills-group">
+                        <h3 class="right-section-title" style="border-top: 2px solid #d1d5db; padding-top: 1rem; margin-top: 1rem;">Soft Skills</h3>
+                        <ul class="soft-skills-list">
+                            <li><strong>Kepemimpinan & Kolaborasi Tim:</strong> Mampu memimpin tim dan berkolaborasi secara efektif dalam lingkungan kerja yang dinamis.</li>
+                            <li><strong>Penyelesaian Masalah & Analitis:</strong> Terampil dalam memecahkan masalah kompleks dan melakukan riset dengan pendekatan analitis untuk menemukan solusi optimal.</li>
+                            <li><strong>Komunikasi & Adaptabilitas:</strong> Memiliki kemampuan komunikasi yang kuat dan mampu beradaptasi dengan cepat terhadap perubahan lingkungan kerja.</li>
+                            <li><strong>Manajemen Waktu & Kreatif:</strong> Mampu mengelola waktu secara efisien untuk memenuhi tenggat waktu dan berpikir kreatif untuk mengembangkan strategi baru.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
 </body>
 </html>
