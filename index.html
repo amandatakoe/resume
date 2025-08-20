@@ -16,7 +16,7 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             background-color: #f3f4f6;
-            padding: 2rem;
+            padding: 1rem; /* Reduced padding for smaller screens */
         }
 
         .resume-container {
@@ -29,8 +29,12 @@
             display: grid;
             grid-template-columns: 1fr;
         }
-
+        
+        /* Two-column layout for tablets and desktops */
         @media (min-width: 768px) {
+            body {
+                padding: 2rem;
+            }
             .resume-container {
                 grid-template-columns: 1fr 2fr;
             }
@@ -40,7 +44,7 @@
         .left-column {
             background-color: #1f2937;
             color: white;
-            padding: 3rem;
+            padding: 2rem; /* Reduced padding for smaller screens */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -49,28 +53,35 @@
 
         @media (min-width: 768px) {
             .left-column {
-                padding: 4rem;
+                padding: 3rem;
                 align-items: flex-start;
                 text-align: left;
             }
         }
 
         .profile-photo {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem; /* Reduced margin for smaller screens */
         }
 
         .profile-photo img {
-            width: 160px;
-            height: 160px;
+            width: 120px;
+            height: 120px;
             border-radius: 9999px;
             border: 4px solid white;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             object-fit: cover;
         }
 
+        @media (min-width: 768px) {
+            .profile-photo img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+
         .contact-info {
             width: 100%;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .section-title {
@@ -101,44 +112,62 @@
 
         /* Right Column Styles */
         .right-column {
-            padding: 3rem;
+            padding: 2rem; /* Reduced padding for smaller screens */
         }
 
         @media (min-width: 768px) {
             .right-column {
-                padding: 4rem;
+                padding: 3rem;
             }
         }
         
         .name-title-section {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
         
         .name {
-            font-size: 2.25rem;
+            font-size: 2rem; /* Reduced font size for smaller screens */
             font-weight: 800;
             color: #111827;
             line-height: 1.25;
         }
+        
+        @media (min-width: 768px) {
+            .name {
+                font-size: 2.25rem;
+            }
+        }
 
         .title {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             color: #4b5563;
             font-weight: 600;
             margin-top: 0.5rem;
         }
         
+        @media (min-width: 768px) {
+             .title {
+                font-size: 1.25rem;
+            }
+        }
+        
         .profile-section {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .right-section-title {
-            font-size: 1.5rem;
+            font-size: 1.25rem; /* Reduced font size for smaller screens */
             font-weight: bold;
             color: #1f2937;
             border-bottom: 2px solid #d1d5db;
             padding-bottom: 0.5rem;
             margin-bottom: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .right-section-title {
+                font-size: 1.5rem;
+            }
         }
         
         .profile-text {
@@ -148,7 +177,7 @@
         }
         
         .experience-section {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
         
         .experience-item {
@@ -156,9 +185,15 @@
         }
 
         .job-title {
-            font-size: 1.125rem;
+            font-size: 1rem; /* Reduced font size for smaller screens */
             font-weight: 600;
             color: #111827;
+        }
+        
+        @media (min-width: 768px) {
+            .job-title {
+                font-size: 1.125rem;
+            }
         }
 
         .company-date {
@@ -182,13 +217,13 @@
         }
         
         .skills-section {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .skills-container {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 1rem;
             font-size: 0.875rem;
         }
 
@@ -236,10 +271,13 @@
                 background: white;
                 -webkit-print-color-adjust: exact;
                 color-adjust: exact;
+                padding: 0 !important;
+                margin: 0 !important;
             }
 
             .resume-container {
                 width: 100%;
+                max-width: none;
                 min-height: auto;
                 box-shadow: none;
                 border-radius: 0;
@@ -370,7 +408,7 @@
                             <li>Menyambut dan memberikan layanan valet parking yang ramah dan efisien untuk tamu hotel.</li>
                             <li>Bertanggung jawab untuk membawa barang bawaan tamu ke kamar, memastikan pengalaman check-in yang mulus.</li>
                             <li>Menjadi titik kontak pertama yang profesional dan ramah bagi tamu, berkontribusi pada reputasi layanan yang unggul.</li>
-                        </ul>
+                            </ul>
                     </div>
                 </div>
             </div>
@@ -408,7 +446,7 @@
                     </div>
                     
                     <div class="soft-skills-group">
-                        <h3 class="right-section-title" style="border-top: 2px solid #d1d5db; padding-top: 1rem; margin-top: 1rem;">Soft Skills</h3>
+                        <h3 style="font-size: 1.125rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem; padding-top: 1rem; border-top: 2px solid #d1d5db;">Soft Skills</h3>
                         <ul class="soft-skills-list">
                             <li><strong>Kepemimpinan & Kolaborasi Tim:</strong> Mampu memimpin tim dan berkolaborasi secara efektif dalam lingkungan kerja yang dinamis.</li>
                             <li><strong>Penyelesaian Masalah & Analitis:</strong> Terampil dalam memecahkan masalah kompleks dan melakukan riset dengan pendekatan analitis untuk menemukan solusi optimal.</li>
