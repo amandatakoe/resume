@@ -5,70 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - Achmad Dedi Purnomo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Define A4 size for print */
-        @page {
-            size: A4;
-            margin: 1cm;
+        /* General Styles and CSS Variables */
+        :root {
+            --color-primary: #1c2533;
+            --color-secondary: #4a5568;
+            --color-highlight: #00bcd4;
+            --color-text-dark: #2d3748;
+            --color-text-medium: #4a5568;
+            --color-background-light: #f7fafc;
+            --color-background-white: #ffffff;
+            --color-border-light: #e2e8f0;
         }
 
         body {
             font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
-            background-color: #f3f4f6;
-            padding: 1rem;
+            background-color: var(--color-background-light);
+            padding: 1.5rem;
+            color: var(--color-text-medium);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--color-text-dark);
+        }
+
+        /* Resume Container - Now using CSS Grid for more robust layout control */
         .resume-container {
-            max-width: 1280px;
+            max-width: 1200px;
             margin: auto;
-            background-color: white;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            background-color: var(--color-background-white);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
             border-radius: 1.5rem;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr;
         }
-        
+
         /* Left Column Styles */
         .left-column {
-            background-color: #1a202c;
-            color: white;
+            background-color: var(--color-primary);
+            color: var(--color-background-white);
             padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             text-align: center;
         }
         
         .profile-photo {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
-        
+
         .profile-photo img {
-            width: 120px;
-            height: 120px;
-            border-radius: 9999px;
-            border: 4px solid #4299e1;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--color-highlight);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             object-fit: cover;
         }
-        
-        .contact-info {
-            width: 100%;
-            margin-bottom: 1.5rem;
-        }
-        
+
         .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.25rem;
-            font-weight: bold;
-            border-bottom: 1px solid #4299e1;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--color-highlight);
             padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             text-align: left;
         }
         
+        .contact-info, .education-info {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
         .contact-list, .education-list {
             list-style: none;
             padding: 0;
@@ -76,169 +90,172 @@
             font-size: 0.875rem;
             text-align: left;
         }
-        
+
         .contact-list li {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 1rem;
             margin-bottom: 1rem;
         }
-        
-        .education-list p {
-            margin: 0;
+
+        .contact-list i {
+            color: var(--color-highlight);
         }
-        
+
         /* Right Column Styles */
         .right-column {
             padding: 2rem;
         }
-        
+
         .name-title-section {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
-        
+
         .name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            color: #1a202c;
-            line-height: 1.25;
+            color: var(--color-text-dark);
+            line-height: 1.2;
         }
         
         .title {
-            font-size: 1.125rem;
-            color: #4b5563;
+            font-size: 1.25rem;
+            color: var(--color-secondary);
             font-weight: 600;
             margin-top: 0.5rem;
         }
-        
-        .profile-section {
-            margin-bottom: 1.5rem;
-        }
-        
+
         .right-section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #1a202c;
-            border-bottom: 2px solid #e2e8f0;
+            font-size: 1.75rem;
+            border-bottom: 2px solid var(--color-border-light);
             padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
-        
+
         .profile-text {
-            color: #374151;
-            line-height: 1.625;
-            font-size: 0.875rem;
+            color: var(--color-text-medium);
+            line-height: 1.6;
+            font-size: 0.9rem;
         }
-        
-        .experience-section {
-            margin-bottom: 1.5rem;
-        }
-        
+
         .experience-item {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
-        
+
         .job-title {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            color: #111827;
         }
         
         .company-date {
-            color: #4b5563;
+            color: var(--color-secondary);
             font-style: italic;
+            font-size: 0.8rem;
             margin-top: 0.25rem;
             margin-bottom: 1rem;
         }
-        
-        .job-details-list {
-            list-style: none;
-            padding-left: 1.25rem;
-            margin: 0;
-        }
-        
-        .job-details-list li {
-            list-style-type: disc;
-            color: #374151;
-            font-size: 0.875rem;
+
+        .job-details-title {
+            font-weight: 600;
             margin-bottom: 0.5rem;
         }
-        
-        .skills-section {
-            margin-bottom: 1.5rem;
+
+        .job-details-list {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            font-size: 0.85rem;
         }
-        
+
         .skills-container {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1rem;
+            gap: 1.5rem;
             font-size: 0.875rem;
         }
-        
-        .skill-group h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 0.5rem;
+
+        .skill-group {
+            display: flex;
+            flex-direction: column;
         }
-        
+
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
         }
-        
+
         .skill-tag {
-            background-color: #e2e8f0;
-            color: #2d3748;
+            background-color: var(--color-border-light);
+            color: var(--color-text-dark);
             font-size: 0.75rem;
-            font-weight: 500;
-            padding: 0.25rem 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
             border-radius: 9999px;
+            white-space: nowrap;
+        }
+
+        .soft-skills-group {
+            border-top: 2px solid var(--color-border-light);
+            padding-top: 1.5rem;
         }
         
+        .soft-skills-group h3 {
+            margin-bottom: 1rem; /* Added margin for better spacing */
+        }
+
         .soft-skills-list {
             list-style: none;
             padding: 0;
             margin: 0;
-            color: #374151;
-            font-size: 0.875rem;
+            display: grid;
+            gap: 1.5rem; /* Added grid gap for better spacing between skills */
         }
-        
+
         .soft-skills-list li {
-            margin-bottom: 0.5rem;
+            line-height: 1.4;
         }
         
         .soft-skills-list strong {
-            font-weight: 500;
+            display: block; /* Make the strong tag a block element to push the text below it */
+            font-weight: 600;
+            margin-bottom: 0.25rem; /* Small margin below the title */
+        }
+
+        /* Media Queries for Responsiveness */
+        
+        /* Tablets and larger devices */
+        @media (min-width: 640px) {
+            .name {
+                font-size: 3rem;
+            }
+            .right-section-title {
+                font-size: 2rem;
+            }
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
-        /* Media query for desktop layout */
-        @media (min-width: 768px) {
+        /* Desktops and larger devices */
+        @media (min-width: 1024px) {
             .resume-container {
-                flex-direction: row;
+                grid-template-columns: 300px 1fr; /* Fixed-width left column, fluid right column */
             }
-        
             .left-column {
-                width: 30%;
-                min-width: 250px;
+                text-align: left;
                 padding: 3rem;
-                align-items: flex-start;
+            }
+            .contact-info, .education-info {
                 text-align: left;
             }
-        
             .right-column {
-                width: 70%;
                 padding: 3rem;
             }
-        
             .skills-container {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                grid-template-columns: repeat(3, 1fr);
             }
         }
-        
+
         /* Print styles */
         @media print {
             body {
@@ -254,12 +271,13 @@
                 min-height: 297mm;
                 box-shadow: none;
                 border-radius: 0;
-                display: flex;
-                flex-direction: row;
+                display: grid;
+                grid-template-columns: 300px 1fr;
             }
         
             .left-column {
                 background-color: #1a202c !important;
+                color: white !important;
                 padding: 1cm !important;
             }
         
@@ -283,7 +301,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-100">
+<body>
     <div class="resume-container">
         <div class="left-column">
             <div class="profile-photo">
@@ -324,7 +342,7 @@
 
             <div class="profile-section">
                 <h2 class="right-section-title">Profil</h2>
-                <p class="profile-text">
+                <p id="profile-text" class="profile-text">
                     Lebih dari sekadar spesialis digital marketing, saya adalah seorang profesional di industri teknologi digital yang membangun karier dari dasar teknis. Sebagai Product & Dev Team Manager, saya memimpin tim, menguasai Google Ads, Meta Ads, dan SEO, dengan tujuan utama untuk mengubah investasi menjadi hasil yang konkret bagi bisnis. Pengalaman saya sebagai Web Developer dan System Administrator melengkapi keahlian ini, memungkinkan saya untuk merancang strategi produk yang terintegrasi dan memastikan kinerja teknis yang optimal dari hulu ke hilir.
                 </p>
             </div>
@@ -418,7 +436,7 @@
                     </div>
                     
                     <div class="soft-skills-group">
-                        <h3 style="font-size: 1.125rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem; padding-top: 1rem; border-top: 2px solid #d1d5db;">Soft Skills</h3>
+                        <h3>Soft Skills</h3>
                         <ul class="soft-skills-list">
                             <li><strong>Kepemimpinan & Kolaborasi Tim:</strong> Mampu memimpin tim dan berkolaborasi secara efektif dalam lingkungan kerja yang dinamis.</li>
                             <li><strong>Penyelesaian Masalah & Analitis:</strong> Terampil dalam memecahkan masalah kompleks dan melakukan riset dengan pendekatan analitis untuk menemukan solusi optimal.</li>
